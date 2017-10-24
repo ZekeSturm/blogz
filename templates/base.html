@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            textarea{
+                width: 540px;
+                height: 120px;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+        <title>{{title}}</title>
+        <nav>
+            <a href="/blog">Blogs</a>
+            <a href="/newpost">New Post</a>
+        </nav>
+    </head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
