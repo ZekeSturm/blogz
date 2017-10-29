@@ -5,15 +5,13 @@
 
     <hr />
 
-    {% if blogs|length == 0 %}
-    <p>No posts yet</p>
+    {% if not blog.id %}
+    <p>There was an error finding this post</p>
     {% else %}
 
     <ul>
-        {% for blog in blogs %}
-        <h2><a href="/blog?id={{blog.id}}">{{blog.name}}</a></h2>
+        <h2>{{blog.name}}</h2>
         <p><p>{{blog.body}}</p></p>
-        {% endfor %}
     </ul>
     {% endif %}
 

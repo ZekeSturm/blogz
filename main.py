@@ -24,9 +24,13 @@ class Blog(db.Model):
 @app.route('/blog', methods=['POST', 'GET'])
 def bloglist():
 
-    blogs = Blog.query.all()
-
-    return render_template('bloglist.html',title="Build-A-Blog!",blogs=blogs)
+    if Blog.query.count() and request.args.get('id'):
+        blogID = request.args.get('id')
+        theBlog = Blog.query.get(blogID)
+        return render_template('singleblog.html',title="Build-A-Blog!",blog=theBlog)
+    else:
+        blogs = Blog.query.all()
+        return render_template('bloglist.html',title="Build-A-Blog!",blogs=blogs)
 
 
 @app.route('/newpost',methods=['POST', 'GET'])
@@ -42,10 +46,9 @@ def new_post():
             return render_template('newblog.html',title="Build-A-Blog!",blogtitle=blog_name,blogbody=blog_body,nameerror=checkvals["nameerror"],blogerror=checkvals["blogerror"])
         else:
             new_blog = Blog(blog_name, blog_body)
-            #blogs.append(new_blog)
             db.session.add(new_blog)
             db.session.commit()
-            return redirect ('/blog')
+            return redirect ('/blog?id={}'.format(new_blog.id))
 
     return render_template('newblog.html',title="Build-A-Blog!",blogtitle="",blogbody="",nameerror="",blogerror="")
 
