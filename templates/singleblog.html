@@ -12,7 +12,7 @@
     <ul>
         <h2>{{blog.name}}</h2>
         <p><p>{{blog.body}}</p></p>
-        <h3>Written by {{poster}}</h3>
+        <h3>Written by <a href="/blog?userId={{blog.owner_id}}">{{poster}}</a></h3>
     </ul>
     {% endif %}
 
