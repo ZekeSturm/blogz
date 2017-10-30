@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Blogz</h1>
+    <form method='post'>
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" value="{{uname}}">
+        <span class="error">{{unameerror}}</span><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password">
+        <span class="error">{{passerror}}</span><br>
+        <label for="confirm">Confirm Password:</label><br>
+        <input type="password" name="confirm">
+        <span class="error">{{confirmerror}}</span><br>
+        <input type="submit">
+    </form>
+{% endblock %}

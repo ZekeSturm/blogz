@@ -6,14 +6,25 @@
                 width: 540px;
                 height: 120px;
             }
+            h3{
+                font-size: 8pt;
+                font-style: italic;
+            }
             .error {
                 color: red;
             }
         </style>
-        <title>{{title}}</title>
+        <title>Blogz</title>
         <nav>
+            <a href="/">Index</a>
             <a href="/blog">Blogs</a>
             <a href="/newpost">New Post</a>
+            {% if session['username'] %}
+            <a href="/logout">Log Out</a>
+            {% else %}
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+            {% endif %}
         </nav>
     </head>
 <body>

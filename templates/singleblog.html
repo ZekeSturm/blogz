@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Build-A-Blog!</h1>
+    <h1>Blogz</h1>
 
     <hr />
 
@@ -12,6 +12,7 @@
     <ul>
         <h2>{{blog.name}}</h2>
         <p><p>{{blog.body}}</p></p>
+        <h3>Written by {{poster}}</h3>
     </ul>
     {% endif %}
 
